@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <title>book_list</title>
+
+</head>
+<body>
+
+<div class="container">
+    <a href="/add_book/" class="btn btn-success" style="margin-top:20px;margin-bottom: 20px;">add</a>
+    <div class="panel panel-primary">
+        <div class="panel-heading">book_list</div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>BookName</th>
+                    <th>Operation</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                    <tr data-id="{{ book.id }}">
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>
+                            <a href="/edit_book/?id={{ book.id }}" class="btn btn-info">edit</a>
+                            <a href="/delete_book/?id={{ book.id }}" class="btn btn-danger">delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="/static/jquery-3.3.1.min.js"></script>
+<script src="/static/bootstrap.min.js"></script>
+
+</body>
+</html>
